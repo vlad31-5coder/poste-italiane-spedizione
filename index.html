@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poste Italiane - Tracking Spedizione</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #004a99;
+            color: #ffcc00;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-weight: bold;
+            font-size: 24px;
+            border-bottom: 5px solid #ffcc00;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .tracking-header {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .tracking-number {
+            font-size: 14px;
+            color: #666;
+        }
+        .status-box {
+            background-color: #e7f3ff;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 5px solid #004a99;
+            margin-bottom: 20px;
+        }
+        .status-main {
+            font-size: 18px;
+            font-weight: bold;
+            color: #004a99;
+        }
+        .delivery-estimate {
+            margin-top: 10px;
+            font-size: 15px;
+            color: #d32f2f;
+            font-weight: bold;
+        }
+        .warning-text {
+            margin-top: 8px;
+            font-size: 12px;
+            color: #555;
+            line-height: 1.4;
+            font-style: italic;
+            border-top: 1px solid #cce4f7;
+            padding-top: 8px;
+        }
+        details {
+            margin-bottom: 25px;
+            padding: 12px;
+            background: #fafafa;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        summary {
+            font-weight: bold;
+            color: #004a99;
+            list-style: none;
+        }
+        summary::before {
+            content: "🔎 ";
+        }
+        .recipient-data {
+            margin-top: 10px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #444;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+        .timeline {
+            list-style: none;
+            padding: 0;
+        }
+        .timeline-item {
+            display: flex;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .timeline-item::before {
+            content: '';
+            width: 2px;
+            background: #004a99;
+            position: absolute;
+            left: 15px;
+            top: 20px;
+            bottom: -20px;
+        }
+        .timeline-item:last-child::before {
+            display: none;
+        }
+        .dot {
+            width: 30px;
+            height: 30px;
+            background: #004a99;
+            border-radius: 50%;
+            margin-right: 15px;
+            z-index: 1;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+        }
+        .dot.active {
+            background: #ffcc00;
+            box-shadow: 0 0 10px rgba(255, 204, 0, 0.8);
+        }
+        .info {
+            flex-grow: 1;
+        }
+        .date {
+            font-size: 12px;
+            color: #888;
+        }
+        .location {
+            font-weight: bold;
+            display: block;
+        }
+        .desc {
+            font-size: 13px;
+        }
+        .partner-note {
+            margin-top: 30px;
+            font-size: 13px;
+            color: #555;
+            background: #fdfae6;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px dashed #e6c300;
+        }
+        footer {
+            text-align: center;
+            font-size: 11px;
+            color: #999;
+            margin-top: 30px;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    Poste Italiane
+</header>
+
+<div class="container">
+    <div class="tracking-header">
+        <span class="tracking-number">Codice Spedizione: <strong>PI948522010IT</strong></span>
+        <h2>Stato: In transito</h2>
+    </div>
+
+    <div class="status-box">
+        <div class="status-main">In corso di trasferimento internazionale</div>
+        <div class="desc">Il pacco ha lasciato il centro operativo e sta transitando verso il paese di destinazione.</div>
+        <div class="delivery-estimate">Data di consegna stimata: 27 - 30 Aprile 2026</div>
+        <div class="warning-text">
+            <strong>Attenzione:</strong> La spedizione deve essere ritirata entro 3 giorni lavorativi dall'arrivo presso il punto di deposito Nova Post. In caso di mancato ritiro, il collo verrà rispedito al mittente con addebito delle spese di giacenza e penale amministrativa di €25,00.
+        </div>
+    </div>
+
+    <details>
+        <summary>Dettagli Destinatario e Spedizione</summary>
+        <div class="recipient-data">
+            <strong>Destinatario:</strong> Nataliya Shvets<br>
+            <strong>Indirizzo di consegna:</strong> Yevropeiskoho Soiuzu Ave, 47<br>
+            <strong>Località:</strong> Kyiv, Ucraina (04208)<br>
+            <strong>Servizio:</strong> Poste Delivery International Standard<br>
+            <strong>Punto di ritiro finale:</strong> Nova Post N°202
+        </div>
+    </details>
+
+    <ul class="timeline">
+        <li class="timeline-item">
+            <div class="dot active">✓</div>
+            <div class="info">
+                <span class="date">15/04/2026 - 10:45</span>
+                <span class="location">TRIESTE (TS)</span>
+                <span class="desc">Centro Scambi Internazionali - In attesa di uscita dal territorio nazionale.</span>
+            </div>
+        </li>
+
+        <li class="timeline-item">
+            <div class="dot">✓</div>
+            <div class="info">
+                <span class="date">13/04/2026 - 09:15</span>
+                <span class="location">VERONA (VR)</span>
+                <span class="desc">In transito presso l'Hub Logistico Nord-Est.</span>
+            </div>
+        </li>
+
+        <li class="timeline-item">
+            <div class="dot">✓</div>
+            <div class="info">
+                <span class="date">10/04/2026 - 18:30</span>
+                <span class="location">BOLOGNA (BO)</span>
+                <span class="desc">Partito dal Centro di Meccanizzazione Postale.</span>
+            </div>
+        </li>
+
+        <li class="timeline-item">
+            <div class="dot">✓</div>
+            <div class="info">
+                <span class="date">07/04/2026 - 11:20</span>
+                <span class="location">FOLIGNO (PG)</span>
+                <span class="desc">Spedizione presa in carico - Ufficio Postale Foligno 1.</span>
+            </div>
+        </li>
+    </ul>
+
+    <div class="partner-note">
+        <strong>Nota Internazionale:</strong> Una volta superato il confine italiano, la gestione logistica sarà affidata al partner locale <strong>Nova Post N°202 (Ukraine) Yevropeiskoho Soiuzu Ave, 47, Kyiv, Ucraina, 04208</strong>. 
+        <br><br>
+        Potrai monitorare l'ultimo miglio su <a href="https://novapost.com/it-it/" target="_blank" style="color: #004a99; font-weight: bold;">novapost.com</a> inserendo il medesimo codice dopo lo sdoganamento a Kyiv.
+    </div>
+</div>
+
+<footer>
+    © 2026 Poste Italiane S.p.A. | Registro Imprese di Roma n. 11114601006 | Società con socio unico
+</footer>
+
+</body>
+</html>
